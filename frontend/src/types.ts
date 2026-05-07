@@ -40,3 +40,10 @@ export interface StreamPayload {
   };
   generatedAt: string;
 }
+
+export interface MarketPayload {
+  point: StreamPoint;
+  analysis: StreamPayload['analysis'];
+  kpis: StreamPayload['kpis'] & { change: number };
+  generatedAt: string;
+}

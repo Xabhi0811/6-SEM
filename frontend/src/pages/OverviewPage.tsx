@@ -10,15 +10,15 @@ import { MapPanel } from '../components/charts/MapPanel';
 import { formatDateTime } from '../utils';
 
 export function OverviewPage() {
-  const { liveData, lastPayload } = useStream();
+  const { marketData, lastMarketPayload } = useStream();
   const [summary, setSummary] = useState<any>(null);
 
   useEffect(() => {
-    api.get('/dashboard/summary').then(({ data }) => setSummary(data));
-  }, [lastPayload]);
+    api.get('/dashboard/market-summary').then(({ data }) => setSummary(data));
+  }, [lastMarketPayload]);
 
-  const points = summary?.recentPoints ?? liveData;
-  const kpis = summary?.kpis ?? lastPayload?.kpis;
+  const points = summary?.recentPoints ?? marketData;
+  const kpis = summary?.kpis ?? lastMarketPayload?.kpis;
 
   const heatmapData = [
     { row: 'IoT', col: 'Mon', value: 0.2 },
@@ -55,10 +55,10 @@ export function OverviewPage() {
       </section>
 
       <section className="grid gap-6 xl:grid-cols-[2fr_1fr]">
-        <GlassCard title="Streaming Analytics" subtitle="Real-time line and area views for the active telemetry feed">
+        <GlassCard title="Streaming Analytics" subtitle="Real-time line and area views for the live market feed">
           <TimeSeriesChart data={points.slice(-40)} />
         </GlassCard>
-        <GlassCard title="Live Session Feed" subtitle="Recent events and auto-generated telemetry tags">
+        <GlassCard title="Live Market Feed" subtitle="Recent market ticks and auto-generated symbols">
           <div className="space-y-3">
             {points.slice(-5).reverse().map((point) => (
               <div key={point.id} className="rounded-2xl border border-white/10 bg-white/5 p-3 text-sm text-slate-300">
@@ -74,7 +74,7 @@ export function OverviewPage() {
       </section>
 
       <section className="grid gap-6 xl:grid-cols-[2fr_1fr]">
-        <GlassCard title="Trend Comparison" subtitle="Market, social, and IoT trajectories">
+        <GlassCard title="Trend Comparison" subtitle="Live market trajectories and volatility changes">
           <LineChartPanel data={points.slice(-30)} />
         </GlassCard>
         <GlassCard title="Heatmap" subtitle="Density view for stream hot spots">
@@ -88,9 +88,9 @@ export function OverviewPage() {
         </GlassCard>
         <GlassCard title="Forecast Note" subtitle="Latest model forecast snapshot">
           <div className="space-y-3 text-sm text-slate-300">
-            <p>Latest stream confidence: {lastPayload?.analysis.confidence ?? 0.91}</p>
-            <p>Prediction horizon: {lastPayload?.analysis.forecast?.join(' • ') ?? 'awaiting live payload'}</p>
-            <p>Anomaly flag: {lastPayload?.analysis.anomaly ? 'active' : 'clear'}</p>
+            <p>Latest stream confidence: {lastMarketPayload?.analysis.confidence ?? 0.91}</p>
+            <p>Prediction horizon: {lastMarketPayload?.analysis.forecast?.join(' • ') ?? 'awaiting live payload'}</p>
+            <p>Anomaly flag: {lastMarketPayload?.analysis.anomaly ? 'active' : 'clear'}</p>
           </div>
         </GlassCard>
       </section>

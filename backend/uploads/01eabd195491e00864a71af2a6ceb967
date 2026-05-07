@@ -1,0 +1,6 @@
+timestamp,source,value,volume,sentiment,anomalyScore,confidence,cluster,category
+2026-05-07T08:00:00Z,social,0.08,400,0.72,0.05,0.96,1,Tweet
+2026-05-07T08:00:01Z,social,-0.12,520,-0.41,0.14,0.92,2,News
+2026-05-07T08:00:02Z,social,0.04,610,0.15,0.20,0.94,1,Forum
+2026-05-07T08:00:03Z,social,-0.22,730,-0.58,0.83,0.89,3,News
+2026-05-07T08:00:04Z,social,0.11,680,0.62,0.17,0.95,0,Post

@@ -5,9 +5,9 @@ import { NetworkGraph } from '../components/charts/NetworkGraph';
 import { useStream } from '../context/StreamContext';
 
 export function LiveAnalyticsPage() {
-  const { liveData } = useStream();
+  const { marketData } = useStream();
 
-  const scatterData = liveData.slice(-20).map((point, index) => ({ x: index + 1, y: point.value, z: Math.max(10, point.volume / 60) }));
+  const scatterData = marketData.slice(-20).map((point, index) => ({ x: index + 1, y: point.value, z: Math.max(10, point.volume / 60) }));
   const radarData = [
     { subject: 'Throughput', value: 0.82 },
     { subject: 'Confidence', value: 0.91 },
@@ -16,7 +16,7 @@ export function LiveAnalyticsPage() {
     { subject: 'Recall', value: 0.84 }
   ];
 
-  const candles = liveData.slice(-6).map((point, index) => ({
+  const candles = marketData.slice(-6).map((point, index) => ({
     label: `T${index + 1}`,
     open: point.value - 5,
     high: point.value + 8,
