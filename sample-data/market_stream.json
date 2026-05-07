@@ -1,0 +1,6 @@
+[
+  {"timestamp":"2026-05-07T08:00:00Z","source":"market","value":182.4,"volume":3400,"sentiment":0.24,"anomalyScore":0.14,"confidence":0.95,"cluster":0,"category":"Equity"},
+  {"timestamp":"2026-05-07T08:00:01Z","source":"market","value":184.6,"volume":3600,"sentiment":0.31,"anomalyScore":0.18,"confidence":0.96,"cluster":0,"category":"Crypto"},
+  {"timestamp":"2026-05-07T08:00:02Z","source":"market","value":176.2,"volume":3900,"sentiment":-0.08,"anomalyScore":0.22,"confidence":0.93,"cluster":1,"category":"Equity"},
+  {"timestamp":"2026-05-07T08:00:03Z","source":"market","value":190.8,"volume":4200,"sentiment":0.37,"anomalyScore":0.88,"confidence":0.91,"cluster":2,"category":"Crypto"}
+]

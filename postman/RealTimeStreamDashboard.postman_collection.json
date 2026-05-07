@@ -1,0 +1,53 @@
+{
+  "info": {
+    "name": "Real-Time Stream Dashboard API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Collection for auth, dashboard, datasets, alerts, and ML service endpoints."
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": { "method": "GET", "url": "{{backendUrl}}/api/health" }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"admin@dashboard.dev\",\n  \"password\": \"Admin@12345\"\n}"
+        },
+        "url": "{{backendUrl}}/api/auth/login"
+      }
+    },
+    {
+      "name": "Dashboard Summary",
+      "request": { "method": "GET", "url": "{{backendUrl}}/api/dashboard/summary" }
+    },
+    {
+      "name": "Performance Metrics",
+      "request": { "method": "GET", "url": "{{backendUrl}}/api/metrics/performance" }
+    },
+    {
+      "name": "Alerts",
+      "request": { "method": "GET", "url": "{{backendUrl}}/api/alerts" }
+    },
+    {
+      "name": "ML Predict",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"source\": \"iot\",\n  \"timestamp\": \"2026-05-07T08:00:00Z\",\n  \"value\": 24.1,\n  \"volume\": 1200,\n  \"sentiment\": 0.12,\n  \"anomalyScore\": 0.08,\n  \"confidence\": 0.93,\n  \"cluster\": 1,\n  \"category\": \"Temperature\"\n}"
+        },
+        "url": "{{mlUrl}}/predict"
+      }
+    }
+  ],
+  "variable": [
+    { "key": "backendUrl", "value": "http://localhost:5000" },
+    { "key": "mlUrl", "value": "http://localhost:8000" }
+  ]
+}

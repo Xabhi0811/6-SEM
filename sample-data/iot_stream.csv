@@ -1,0 +1,6 @@
+timestamp,source,value,volume,sentiment,anomalyScore,confidence,cluster,category
+2026-05-07T08:00:00Z,iot,24.1,1200,0.12,0.08,0.93,1,Temperature
+2026-05-07T08:00:01Z,iot,25.7,1180,0.10,0.12,0.91,1,Pressure
+2026-05-07T08:00:02Z,iot,28.3,1400,0.09,0.15,0.92,2,Humidity
+2026-05-07T08:00:03Z,iot,38.8,1600,0.15,0.86,0.89,3,Latency
+2026-05-07T08:00:04Z,iot,31.4,1500,0.11,0.21,0.94,2,Temperature
