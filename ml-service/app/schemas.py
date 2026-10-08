@@ -13,6 +13,7 @@ class StreamPoint(BaseModel):
     category: str = ""
 
 
+
 class PredictionResponse(BaseModel):
     prediction: float
     confidence: float
