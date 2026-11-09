@@ -9,6 +9,7 @@
       "name": "Health",
       "request": { "method": "GET", "url": "{{backendUrl}}/api/health" }
     },
+
     {
       "name": "Login",
       "request": {
