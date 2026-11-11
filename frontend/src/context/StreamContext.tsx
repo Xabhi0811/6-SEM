@@ -10,6 +10,7 @@ interface StreamState {
   connected: boolean;
 }
 
+
 const StreamContext = createContext<StreamState | null>(null);
 
 export function StreamProvider({ children }: { children: ReactNode }) {
